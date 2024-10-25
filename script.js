@@ -8,68 +8,48 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
     });
 });
 
-// Redirect to Google search for skills
-document.querySelectorAll('.skill-button').forEach(button => {
-    button.addEventListener('click', function() {
-        const searchTerm = this.getAttribute('data-search');
-        window.open(`https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+// Word Guessing Game Logic
+document.addEventListener("DOMContentLoaded", function() {
+    const word = "CODE";
+    let guessedWord = Array(word.length).fill("_");
+    let attemptsLeft = 5;
+
+    const wordBlanks = document.getElementById("word-blanks");
+    const guessInput = document.getElementById("guess-input");
+    const guessButton = document.getElementById("guess-button");
+    const message = document.getElementById("message");
+    const attemptsDisplay = document.getElementById("attempts");
+
+    wordBlanks.textContent = guessedWord.join(" ");
+    attemptsDisplay.textContent = attemptsLeft;
+
+    guessButton.addEventListener("click", function() {
+        const guess = guessInput.value.toUpperCase();
+        guessInput.value = "";
+
+        if (guess && guess.length === 1 && /^[A-Z]$/.test(guess)) {
+            let correct = false;
+            for (let i = 0; i < word.length; i++) {
+                if (word[i] === guess) {
+                    guessedWord[i] = guess;
+                    correct = true;
+                }
+            }
+            wordBlanks.textContent = guessedWord.join(" ");
+
+            if (!correct) {
+                attemptsLeft--;
+                attemptsDisplay.textContent = attemptsLeft;
+                if (attemptsLeft === 0) {
+                    message.textContent = "Game Over! The word was " + word;
+                    guessButton.disabled = true;
+                }
+            } else if (!guessedWord.includes("_")) {
+                message.textContent = "Congratulations! You've guessed the word!";
+                guessButton.disabled = true;
+            }
+        } else {
+            message.textContent = "Please enter a valid letter.";
+        }
     });
 });
-
-// Word Guessing Game
-const words = ["CLOUD", "DEVOPS", "DOCKER", "KUBERNETES", "TERRAFORM"];
-let selectedWord = "";
-let guessedWord = [];
-let attempts = 6;
-
-function startGame() {
-    selectedWord = words[Math.floor(Math.random() * words.length)];
-    guessedWord = Array(selectedWord.length).fill("_");
-    attempts = 6;
-    document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
-    document.getElementById("message").textContent = `Attempts left: ${attempts}`;
-    generateAlphabetButtons();
-}
-
-function generateAlphabetButtons() {
-    const lettersDiv = document.getElementById("letters");
-    lettersDiv.innerHTML = "";
-    for (let i = 65; i <= 90; i++) { // ASCII codes for A-Z
-        const letter = String.fromCharCode(i);
-        const button = document.createElement("button");
-        button.textContent = letter;
-        button.addEventListener("click", () => guessLetter(letter));
-        lettersDiv.appendChild(button);
-    }
-}
-
-function guessLetter(letter) {
-    if (selectedWord.includes(letter)) {
-        // Reveal matching letters
-        for (let i = 0; i < selectedWord.length; i++) {
-            if (selectedWord[i] === letter) {
-                guessedWord[i] = letter;
-            }
-        }
-    } else {
-        // Deduct an attempt if incorrect
-        attempts--;
-    }
-    document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
-    document.getElementById("message").textContent = `Attempts left: ${attempts}`;
-    
-    if (!guessedWord.includes("_")) {
-        document.getElementById("message").textContent = "Congratulations! You guessed the word!";
-        disableButtons();
-    } else if (attempts <= 0) {
-        document.getElementById("message").textContent = `Game Over! The word was: ${selectedWord}`;
-        disableButtons();
-    }
-}
-
-function disableButtons() {
-    document.querySelectorAll("#letters button").forEach(button => button.disabled = true);
-}
-
-// Start the game when the page loads
-startGame();
