@@ -8,28 +8,15 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
     });
 });
 
-// Fade-in Effect on Scroll
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-        }
-    });
-});
-
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-});
-
-// Show/Hide Skill Information
+// Show/Hide Skill Information and redirect to Google search
 document.querySelectorAll('.skill-button').forEach(button => {
     button.addEventListener('click', function() {
         const infoDiv = this.nextElementSibling;
-        if (infoDiv.style.display === "block") {
-            infoDiv.style.display = "none"; // Hide if already visible
-        } else {
-            infoDiv.textContent = this.getAttribute('data-info'); // Set text from data attribute
-            infoDiv.style.display = "block"; // Show the info
-        }
-    });
-});
+        const searchTerm = this.getAttribute('data-search');
+        
+        // Redirect to Google search
+        window.open(`https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+        
+        // Display info (if needed in future)
+        // infoDiv.textContent = this.getAttribute('data-info');
+        // infoDiv.style
