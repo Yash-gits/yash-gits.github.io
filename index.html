@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- Logo -->
     <header>
         <img src="logo-yash.png" alt="Yash Logo" class="logo">
         <nav>
@@ -20,63 +20,42 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#game">Game</a></li>
+                <li><a href="#word-game">Word Game</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <h1>Hello, I'm Yash Shende</h1>
-        <p>Aspiring DevOps Engineer & Cloud Enthusiast</p>
-    </section>
-
-    <!-- About Me Section -->
+    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
         <p>I'm Yash, passionate about Cloud, DevOps, and Automation. I love working with open-source technologies.</p>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project 1: Cloud Automation with Terraform</h3>
-            <p>Automated cloud infrastructure using Terraform scripts.</p>
-        </div>
-        <div class="project">
-            <h3>Project 2: Kubernetes Cluster Setup</h3>
-            <p>Set up a Kubernetes cluster and deployed a CI/CD pipeline.</p>
-        </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
         <h2>Skills</h2>
         <ul>
-            <li><button class="skill-button" data-search="Cloud AWS GCP">Cloud (AWS, GCP)</button></li>
-            <li><button class="skill-button" data-search="DevOps Tools Jenkins Ansible Terraform">DevOps Tools (Jenkins, Ansible, Terraform)</button></li>
-            <li><button class="skill-button" data-search="Containers Docker Kubernetes">Containers (Docker, Kubernetes)</button></li>
-            <li><button class="skill-button" data-search="Version Control Git GitHub">Version Control (Git, GitHub)</button></li>
+            <li><a href="https://www.google.com/search?q=AWS" target="_blank">Cloud (AWS, GCP)</a></li>
+            <li><a href="https://www.google.com/search?q=Jenkins+Ansible+Terraform" target="_blank">DevOps Tools (Jenkins, Ansible, Terraform)</a></li>
+            <li><a href="https://www.google.com/search?q=Docker+Kubernetes" target="_blank">Containers (Docker, Kubernetes)</a></li>
+            <li><a href="https://www.google.com/search?q=Git+GitHub" target="_blank">Version Control (Git, GitHub)</a></li>
         </ul>
     </section>
 
     <!-- Word Guessing Game Section -->
-    <section id="game">
+    <section id="word-game">
         <h2>Word Guessing Game</h2>
-        <p>Guess the hidden word by selecting letters!</p>
-        <div id="wordDisplay">_ _ _ _ _</div>
-        <div id="message"></div>
-        <div id="letters">
-            <!-- Alphabet buttons will be generated here -->
-        </div>
-        <button id="restart-game" onclick="startGame()">Restart Game</button>
+        <p id="word-blanks">_ _ _ _</p>
+        <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter">
+        <button id="guess-button">Guess</button>
+        <p id="message"></p>
+        <p>Attempts Left: <span id="attempts">5</span></p>
     </section>
 
     <footer>
         <p>© 2024 Yash Shende</p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
