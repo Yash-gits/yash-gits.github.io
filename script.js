@@ -16,18 +16,30 @@ document.querySelectorAll('.skill-button').forEach(button => {
     });
 });
 
-// Bubble Burst Game
-let score = 0;
-let gameInterval;
+// Dinosaur Game Setup
+const canvas = document.getElementById("dinoGame");
+const ctx = canvas.getContext("2d");
 
-document.getElementById('start-game').addEventListener('click', startGame);
+let score = 0;
+let isJumping = false;
+let dinoY = canvas.height - 40; // Dinosaur vertical position
+let gravity = 2;
+let obstacles = [];
+let gameInterval;
+let frameCount = 0;
+
+document.getElementById("start-game").addEventListener("click", startGame);
 
 function startGame() {
     score = 0;
-    document.getElementById('score').innerText = `Score: ${score}`;
-    document.getElementById('game-area').innerHTML = ''; // Clear previous bubbles
-    gameInterval = setInterval(createBubble, 1000); // Create a bubble every second
+    isJumping = false;
+    dinoY = canvas.height - 40;
+    obstacles = [];
+    frameCount = 0;
+    clearInterval(gameInterval);
+    document.getElementById("score").innerText = `Score: ${score}`;
+    gameInterval = setInterval(gameLoop, 20);
 }
 
-function createBubble() {
-    const bubble
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas
