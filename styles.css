@@ -42,7 +42,8 @@ header nav ul li a:hover {
 /* Hero Section */
 #hero {
     text-align: center;
-    padding: 2rem;
+    width: 1024px;  /* Set width to match the specified size */
+    height: 1792px; /* Set height to match the specified size */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('devops-banner.png') center/cover no-repeat;
     color: #fff;
 }
@@ -125,4 +126,24 @@ footer {
     background-color: #333;
     color: #fff;
     font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #hero {
+        width: 100%;
+        height: auto; /* Allow height to adjust based on content */
+    }
+    
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    section {
+        margin: 1rem;
+    }
 }
