@@ -20,3 +20,16 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
+
+// Show/Hide Skill Information
+document.querySelectorAll('.skill-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const infoDiv = this.nextElementSibling;
+        if (infoDiv.style.display === "block") {
+            infoDiv.style.display = "none"; // Hide if already visible
+        } else {
+            infoDiv.textContent = this.getAttribute('data-info'); // Set text from data attribute
+            infoDiv.style.display = "block"; // Show the info
+        }
+    });
+});
