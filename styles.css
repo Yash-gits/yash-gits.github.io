@@ -1,82 +1,125 @@
-/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
 }
 
-header {
-    background-color: #333;
-    padding: 10px;
-    text-align: center;
-}
-
-header nav ul {
+nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #282c34;
 }
 
-header nav ul li {
-    display: inline;
-    margin-right: 15px;
+nav ul li {
+    margin: 0 15px;
 }
 
-header nav ul li a {
-    color: white;
+nav ul li a {
+    color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+    color: #61dafb;
+    transition: color 0.3s;
 }
 
 #hero {
-    background-color: #0066cc;
+    background-color: #282c34;
     color: white;
+    padding: 100px 0;
     text-align: center;
-    padding: 100px 20px;
+    animation: fadeIn 2s;
 }
 
-h1 {
-    margin: 0;
-    font-size: 48px;
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-p {
-    font-size: 18px;
+#about, #projects, #skills, #contact {
+    margin: 50px auto;
+    width: 80%;
 }
 
-section {
-    padding: 50px 20px;
+h1, h2 {
     text-align: center;
+    font-weight: 600;
 }
 
-#about {
-    background-color: #f4f4f4;
-}
-
-#projects {
-    background-color: #fff;
+p, ul {
+    font-size: 1.1em;
+    line-height: 1.6;
 }
 
 .project {
-    margin-bottom: 30px;
+    background-color: #61dafb;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    animation: slideUp 1.5s ease;
 }
 
-#skills {
-    background-color: #f4f4f4;
+@keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-#contact {
-    background-color: #fff;
+ul li {
+    margin-bottom: 10px;
+}
+
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#skills ul li {
+    width: 45%;
+    background-color: #f8f8f8;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 10px;
+    animation: zoomIn 1s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+#contact a {
+    color: #61dafb;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
 }
 
 footer {
-    background-color: #333;
-    color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px;
+    background-color: #282c34;
+    color: white;
 }
 
-footer p {
-    margin: 0;
+/* Animation on scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.in-view {
+    opacity: 1;
+    transform: none;
 }
