@@ -1,176 +1,47 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Body Styling */
-body {
-    background-color: #f5f5f5;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Header Navigation */
-header {
-    background-color: #333;
-    padding: 1rem 0;
+/* Word Guessing Game Styling */
+#game {
     text-align: center;
+    margin-top: 2rem;
 }
 
-header .logo {
-    width: 150px; /* Adjust size as necessary */
-    margin-bottom: 0.5rem;
-}
-
-header nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-}
-
-header nav ul li {
-    margin: 0 1rem;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-header nav ul li a:hover {
-    color: #ff9800;
-}
-
-/* Hero Section */
-#hero {
-    text-align: center;
-    color: #fff;
-    background-color: #333; /* Simple background color */
-    padding: 4rem 0;
-}
-
-#hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-#hero p {
-    font-size: 1.2rem;
-}
-
-/* Section Titles */
-section h2 {
-    text-align: center;
-    margin: 2rem 0;
+#wordDisplay {
     font-size: 2rem;
-    color: #333;
-}
-
-/* About Section */
-#about, #projects, #skills, #contact, #game {
-    padding: 2rem;
-    background-color: #fff;
     margin: 1rem 0;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.3rem;
 }
 
-/* Projects Styling */
-.project {
-    background-color: #e0f7fa;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 8px;
-}
-
-.project h3 {
-    font-size: 1.5rem;
+#message {
+    font-size: 1.2rem;
     color: #333;
+    margin: 1rem 0;
 }
 
-.project p {
+#letters button {
+    margin: 5px;
+    padding: 0.5rem;
     font-size: 1rem;
-    color: #666;
-}
-
-/* Skills Section */
-#skills ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-}
-
-.skill-button {
-    display: inline-block;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
     background-color: #ff9800;
     color: #fff;
     border: none;
     border-radius: 4px;
-    font-weight: bold;
     cursor: pointer;
 }
 
-.skill-button:hover {
+#letters button:hover {
     background-color: #e68a00;
 }
 
-/* Dinosaur Game */
-#game {
-    text-align: center;
-}
-
-#game-area {
-    width: 100%;
-    margin: 1rem auto;
-}
-
-/* Canvas for Dinosaur Game */
-canvas {
-    border: 2px solid #333;
-    background-color: #f5f5f5;
-}
-
-/* Contact Section */
-#contact a {
-    color: #ff9800;
-    text-decoration: none;
-}
-
-#contact a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
+#restart-game {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
     background-color: #333;
     color: #fff;
-    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    #hero {
-        width: 100%;
-        height: auto;
-    }
-    
-    #hero h1 {
-        font-size: 2rem;
-    }
-
-    #hero p {
-        font-size: 1rem;
-    }
-
-    section {
-        margin: 1rem;
-    }
+#restart-game:hover {
+    background-color: #444;
 }
