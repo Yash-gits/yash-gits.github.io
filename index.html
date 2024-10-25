@@ -20,6 +20,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#game">Game</a></li>
             </ul>
         </nav>
     </header>
@@ -53,35 +54,23 @@
     <section id="skills">
         <h2>Skills</h2>
         <ul>
-            <li>
-                <button class="skill-button" data-search="Cloud AWS GCP">Cloud (AWS, GCP)</button>
-            </li>
-            <li>
-                <button class="skill-button" data-search="DevOps Tools Jenkins Ansible Terraform">DevOps Tools (Jenkins, Ansible, Terraform)</button>
-            </li>
-            <li>
-                <button class="skill-button" data-search="Containers Docker Kubernetes">Containers (Docker, Kubernetes)</button>
-            </li>
-            <li>
-                <button class="skill-button" data-search="Version Control Git GitHub">Version Control (Git, GitHub)</button>
-            </li>
+            <li><button class="skill-button" data-search="Cloud AWS GCP">Cloud (AWS, GCP)</button></li>
+            <li><button class="skill-button" data-search="DevOps Tools Jenkins Ansible Terraform">DevOps Tools (Jenkins, Ansible, Terraform)</button></li>
+            <li><button class="skill-button" data-search="Containers Docker Kubernetes">Containers (Docker, Kubernetes)</button></li>
+            <li><button class="skill-button" data-search="Version Control Git GitHub">Version Control (Git, GitHub)</button></li>
         </ul>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to reach out to me at: <a href="mailto:yashshende22@gmail.com">yashshende22@gmail.com</a></p>
-    </section>
-
-    <!-- Dinosaur Game Section -->
+    <!-- Word Guessing Game Section -->
     <section id="game">
-        <h2>Dinosaur Game</h2>
-        <div id="game-area">
-            <canvas id="dinoGame" width="600" height="150"></canvas>
-            <p id="score">Score: 0</p>
+        <h2>Word Guessing Game</h2>
+        <p>Guess the hidden word by selecting letters!</p>
+        <div id="wordDisplay">_ _ _ _ _</div>
+        <div id="message"></div>
+        <div id="letters">
+            <!-- Alphabet buttons will be generated here -->
         </div>
-        <button id="start-game">Start Game</button>
+        <button id="restart-game" onclick="startGame()">Restart Game</button>
     </section>
 
     <footer>
