@@ -16,30 +16,60 @@ document.querySelectorAll('.skill-button').forEach(button => {
     });
 });
 
-// Dinosaur Game Setup
-const canvas = document.getElementById("dinoGame");
-const ctx = canvas.getContext("2d");
-
-let score = 0;
-let isJumping = false;
-let dinoY = canvas.height - 40; // Dinosaur vertical position
-let gravity = 2;
-let obstacles = [];
-let gameInterval;
-let frameCount = 0;
-
-document.getElementById("start-game").addEventListener("click", startGame);
+// Word Guessing Game
+const words = ["CLOUD", "DEVOPS", "DOCKER", "KUBERNETES", "TERRAFORM"];
+let selectedWord = "";
+let guessedWord = [];
+let attempts = 6;
 
 function startGame() {
-    score = 0;
-    isJumping = false;
-    dinoY = canvas.height - 40;
-    obstacles = [];
-    frameCount = 0;
-    clearInterval(gameInterval);
-    document.getElementById("score").innerText = `Score: ${score}`;
-    gameInterval = setInterval(gameLoop, 20);
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+    guessedWord = Array(selectedWord.length).fill("_");
+    attempts = 6;
+    document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+    document.getElementById("message").textContent = `Attempts left: ${attempts}`;
+    generateAlphabetButtons();
 }
 
-function gameLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas
+function generateAlphabetButtons() {
+    const lettersDiv = document.getElementById("letters");
+    lettersDiv.innerHTML = "";
+    for (let i = 65; i <= 90; i++) { // ASCII codes for A-Z
+        const letter = String.fromCharCode(i);
+        const button = document.createElement("button");
+        button.textContent = letter;
+        button.addEventListener("click", () => guessLetter(letter));
+        lettersDiv.appendChild(button);
+    }
+}
+
+function guessLetter(letter) {
+    if (selectedWord.includes(letter)) {
+        // Reveal matching letters
+        for (let i = 0; i < selectedWord.length; i++) {
+            if (selectedWord[i] === letter) {
+                guessedWord[i] = letter;
+            }
+        }
+    } else {
+        // Deduct an attempt if incorrect
+        attempts--;
+    }
+    document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+    document.getElementById("message").textContent = `Attempts left: ${attempts}`;
+    
+    if (!guessedWord.includes("_")) {
+        document.getElementById("message").textContent = "Congratulations! You guessed the word!";
+        disableButtons();
+    } else if (attempts <= 0) {
+        document.getElementById("message").textContent = `Game Over! The word was: ${selectedWord}`;
+        disableButtons();
+    }
+}
+
+function disableButtons() {
+    document.querySelectorAll("#letters button").forEach(button => button.disabled = true);
+}
+
+// Start the game when the page loads
+startGame();
