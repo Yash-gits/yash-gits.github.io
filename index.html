@@ -13,6 +13,7 @@
 
     <!-- Navigation Bar -->
     <header>
+        <img src="logo-yash.png" alt="Yash Logo" class="logo">
         <nav>
             <ul>
                 <li><a href="#about">About Me</a></li>
@@ -27,7 +28,6 @@
     <section id="hero">
         <h1>Hello, I'm Yash Shende</h1>
         <p>Aspiring DevOps Engineer & Cloud Enthusiast</p>
-        <img src="devops-banner.png" alt="DevOps Image" class="devops-image">
     </section>
 
     <!-- About Me Section -->
@@ -54,19 +54,19 @@
         <h2>Skills</h2>
         <ul>
             <li>
-                <button class="skill-button" data-info="Cloud services provided by AWS and GCP for various computing needs.">Cloud (AWS, GCP)</button>
+                <button class="skill-button" data-info="Cloud services provided by AWS and GCP for various computing needs." data-search="Cloud AWS GCP">Cloud (AWS, GCP)</button>
                 <div class="skill-info"></div>
             </li>
             <li>
-                <button class="skill-button" data-info="DevOps tools used for continuous integration and continuous deployment.">DevOps Tools (Jenkins, Ansible, Terraform)</button>
+                <button class="skill-button" data-info="DevOps tools used for continuous integration and continuous deployment." data-search="DevOps Tools Jenkins Ansible Terraform">DevOps Tools (Jenkins, Ansible, Terraform)</button>
                 <div class="skill-info"></div>
             </li>
             <li>
-                <button class="skill-button" data-info="Containers and orchestration platforms for application management.">Containers (Docker, Kubernetes)</button>
+                <button class="skill-button" data-info="Containers and orchestration platforms for application management." data-search="Containers Docker Kubernetes">Containers (Docker, Kubernetes)</button>
                 <div class="skill-info"></div>
             </li>
             <li>
-                <button class="skill-button" data-info="Version control systems for collaborative software development.">Version Control (Git, GitHub)</button>
+                <button class="skill-button" data-info="Version control systems for collaborative software development." data-search="Version Control Git GitHub">Version Control (Git, GitHub)</button>
                 <div class="skill-info"></div>
             </li>
         </ul>
@@ -76,6 +76,14 @@
     <section id="contact">
         <h2>Contact</h2>
         <p>Feel free to reach out to me at: <a href="mailto:yashshende22@gmail.com">yashshende22@gmail.com</a></p>
+    </section>
+
+    <!-- Bubble Burst Game Section -->
+    <section id="game">
+        <h2>Bubble Burst Game</h2>
+        <div id="game-area"></div>
+        <button id="start-game">Start Game</button>
+        <p id="score">Score: 0</p>
     </section>
 
     <footer>
